@@ -1,0 +1,8 @@
+.shop_list_container {
+    .shop_list {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        align-items: start;
+        justify-content: center;
+    }
+}

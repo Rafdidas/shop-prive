@@ -1,0 +1,22 @@
+#main {
+    .main_visual {
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+        }
+        .swiper-pagination-progressbar {
+            position: absolute;
+            left: 50%;
+            top: auto;
+            bottom: 50px;
+            width: 210px;
+            height: 2px;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateX(-50%);
+        }
+        .swiper-pagination-progressbar-fill {
+            background: #fff;
+        }
+    }
+}

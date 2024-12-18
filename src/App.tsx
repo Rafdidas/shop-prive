@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./routes/home/home.component";
 import Shop from "./routes/shop/shop.component";
 import Main from "./routes/main/main.component";
+import Detail from "./routes/detail/detail.component";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="main" element={<Main />} />
         <Route path="shop" element={<Shop />} />
         <Route path="/shop/:category" element={ <Shop /> } />
+        <Route path="shop/:category/:productId" element={<Detail />} />
       </Route>
     </Routes>
   );

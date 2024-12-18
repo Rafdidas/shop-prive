@@ -7,6 +7,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CategoriesProvider } from './contexts/categories.context';
 import { ProductsProvider } from './contexts/products.context';
+import { DetailProvider } from './contexts/detail.context';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,9 +16,11 @@ root.render(
   <React.StrictMode>
     <CategoriesProvider>
       <ProductsProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <DetailProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </DetailProvider>
       </ProductsProvider>
     </CategoriesProvider>
   </React.StrictMode>

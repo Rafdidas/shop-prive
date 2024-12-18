@@ -17,6 +17,7 @@ const Header: FC = () => {
                 <div className='hd_left_menu'>
                     <h1><Link to='/'>PRIVE</Link></h1>
                     <ul className='hd_menu_list'>
+                        <li><Link to='/shop'>All</Link></li>
                         {Array.isArray(categories) && categories.map((category) => {
                             return (
                                 <li key={category}>

@@ -11,17 +11,22 @@ const Shop: FC = () => {
     const { products, loading, fetchProducts, currentPage, hasMore } = useProducts();
     
     useEffect(() => {
-        fetchProducts(1, category);
+        if (category) {
+            fetchProducts(1, category);
+        } else {
+            fetchProducts(1);
+        }
     }, [category]);
 
     const loadMore = () => {
-        if (hasMore && !loading) {
-            fetchProducts(currentPage + 1, category);
+        if (hasMore && !loading && !category) {
+            fetchProducts(currentPage + 1);
         }
     };
 
     return (
         <div className="shop_list_container">
+            <h2>{category ? `${category.toUpperCase()} 제품 목록` : "모든 제품 목록"}</h2>
             <div className='shop_list'>
                 {
                     products.map((product) => {
@@ -31,7 +36,9 @@ const Shop: FC = () => {
                     })
                 }
             </div>
-            {hasMore && !loading && <button onClick={loadMore}>Load More</button>}
+            {hasMore && !loading && !category && (
+                <button onClick={loadMore}>Load More</button>
+                )}
         </div>
     )
 }

@@ -20,7 +20,6 @@ import {
     QueryDocumentSnapshot
 } from 'firebase/firestore'
 
-
 const firebaseConfig = {
   apiKey: "AIzaSyAWjm0XwLwEuvUbBrPYYo7Z27P5xY-R5YE",
   authDomain: "prive-f2d8a.firebaseapp.com",

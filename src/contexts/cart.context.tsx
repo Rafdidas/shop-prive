@@ -1,7 +1,7 @@
 import React, { createContext, FC, useContext, useState } from "react";
 import { Product } from "./products.context";
 
-interface CartItem extends Product {
+export interface CartItem extends Product {
     quantity: number;
 }
 
@@ -10,12 +10,17 @@ interface CartContextType {
     addToCart: (product: Product) => void;
     removeFromCart: (productId: number) => void;
     clearCart: () => void;
+    totalItems: number; 
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
+    const totalItems = cartItems.reduce(
+        (total, item) => total + (item.quantity || 1),
+        0
+    );
 
     const addToCart = (product: Product) => {
         setCartItems((prev) => {
@@ -41,14 +46,14 @@ export const CartProvider: FC<{ children: React.ReactNode }> = ({ children }) =>
     };
 
     return (
-        <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart }}>
+        <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart, totalItems }}>
             {children}
         </CartContext.Provider>
     )
 
 };
 
-export const useCart = () => {
+export const useCart = (): CartContextType => {
     const context = useContext(CartContext);
     if (!context) {
         throw new Error("useCart error");

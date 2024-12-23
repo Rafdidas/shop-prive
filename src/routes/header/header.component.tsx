@@ -10,9 +10,8 @@ import { useUser } from '../../contexts/user.context';
 
 const Header: FC = () => {
     const { categories, loading, error } = useCategories();
-    const { cartItems } = useCart();
+    const { totalItems } = useCart();
 
-    const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
     const { currentUser, signOut } = useUser();
 

@@ -1,9 +1,19 @@
 import { FC } from 'react';
 import './cart.styles.scss';
 import { useCart } from '../../contexts/cart.context';
+import { useNavigate } from 'react-router-dom';
 
 const Cart: FC = () => {
     const { cartItems, removeFromCart, clearCart } = useCart();
+    const navigate = useNavigate();
+
+    const handleDetailOrder = () => {
+        if (cartItems.length === 0) {
+            alert("장바구니에 상품이 없습니다.");
+            return;
+        }
+        navigate("/order");
+    }
 
     return (
         <div id='cart'>
@@ -24,6 +34,7 @@ const Cart: FC = () => {
             }
             </ul>
             <button onClick={clearCart}>장바구니 비우기</button>
+            <button onClick={handleDetailOrder}>구매하기</button>
         </div>
     );
 }

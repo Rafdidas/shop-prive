@@ -19,21 +19,32 @@ header {
             display: flex;
             align-items: center;
             justify-content: start;
-        }
 
-        h1 {
-            margin-right: 30px;
-        }
-
-        .hd_menu_list {
-            display: flex;
-            justify-content: start;
-            align-items: center;
-            column-gap: 15px;
-
-            & > li > * {
-                text-transform: uppercase;
+            h1 {
+                    margin-right: 30px;
+                }
+            
+            .hd_menu_list {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                column-gap: 15px;
+        
+                &>li>* {
+                    text-transform: uppercase;
+                }
             }
         }
+
+        .hd_right_menu {
+            .my_menu {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                column-gap: 15px;
+            }
+        }
+
+        
     }
 }

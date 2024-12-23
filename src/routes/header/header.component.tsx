@@ -1,12 +1,17 @@
 import './header.styles.scss';
 
 import { FC } from 'react';
-import { useCategories } from '../../contexts/categories.context';
 import { Link } from 'react-router-dom';
+
+import { useCategories } from '../../contexts/categories.context';
+import { useCart } from '../../contexts/cart.context';
 
 
 const Header: FC = () => {
     const { categories, loading, error } = useCategories();
+    const { cartItems } = useCart();
+
+    const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
     if (loading) return <p>Loading...</p>
     if (error) return <p>Error: {error}</p>
@@ -30,6 +35,7 @@ const Header: FC = () => {
                 <div className='hd_right_menu'>
                     <ul className='my_menu'>
                         <li><Link to='/'>Log In</Link></li>
+                        <li><Link to='/cart'>Cart <span>{totalItems}</span></Link></li>
                     </ul>
                 </div>
             </div>

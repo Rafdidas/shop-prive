@@ -2,14 +2,16 @@ import React, { createContext, FC, useContext, useState } from "react";
 
 interface ProductDetail {
     id: number;
-    title: string;
-    price: number;
-    description: string;
     brand: string;
-    model: string;
-    color: string;
-    image: string;
     category: string;
+    color: string;
+    description: string;
+    discount: number;
+    image: string;
+    model: string;
+    popular: boolean;
+    price: number;
+    title: string;
 }
 
 interface DetailContextType {

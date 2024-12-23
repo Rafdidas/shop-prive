@@ -5,6 +5,7 @@ import Shop from "./routes/shop/shop.component";
 import Main from "./routes/main/main.component";
 import Detail from "./routes/detail/detail.component";
 import Cart from "./routes/cart/cart.component";
+import AuthPage from "./routes/authenticaion/authenticaion.component";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="shop/:category" element={ <Shop /> } />
         <Route path="shop/:category/:productId" element={<Detail />} />
         <Route path="cart" element={<Cart />} />
+        <Route path="sign-in" element={<AuthPage />} />
       </Route>
     </Routes>
   );

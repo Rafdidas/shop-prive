@@ -9,23 +9,26 @@ import { CategoriesProvider } from './contexts/categories.context';
 import { ProductsProvider } from './contexts/products.context';
 import { DetailProvider } from './contexts/detail.context';
 import { CartProvider } from './contexts/cart.context';
+import { UserProvider } from './contexts/user.context';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <CategoriesProvider>
-      <ProductsProvider>
-        <DetailProvider>
-          <CartProvider>
-            <BrowserRouter>
-              <App />
-            </BrowserRouter>
-          </CartProvider>
-        </DetailProvider>
-      </ProductsProvider>
-    </CategoriesProvider>
+    <UserProvider>
+      <CategoriesProvider>
+        <ProductsProvider>
+          <DetailProvider>
+            <CartProvider>
+              <BrowserRouter>
+                <App />
+              </BrowserRouter>
+            </CartProvider>
+          </DetailProvider>
+        </ProductsProvider>
+      </CategoriesProvider>
+    </UserProvider>
   </React.StrictMode>
 );
 

@@ -1,10 +1,11 @@
 import './header.styles.scss';
 
-import { FC } from 'react';
+import { FC, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useCategories } from '../../contexts/categories.context';
 import { useCart } from '../../contexts/cart.context';
+import { useUser } from '../../contexts/user.context';
 
 
 const Header: FC = () => {
@@ -12,6 +13,8 @@ const Header: FC = () => {
     const { cartItems } = useCart();
 
     const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+    const { currentUser, signOut } = useUser();
 
     if (loading) return <p>Loading...</p>
     if (error) return <p>Error: {error}</p>
@@ -34,7 +37,14 @@ const Header: FC = () => {
                 </div>
                 <div className='hd_right_menu'>
                     <ul className='my_menu'>
-                        <li><Link to='/'>Log In</Link></li>
+                        {currentUser ? (
+                            <Fragment>
+                                <li>{currentUser.displayName || currentUser.email}</li>
+                                <li><button onClick={signOut}>Sign Out</button></li>
+                            </Fragment>
+                        ) : (
+                            <li><Link to='/sign-in'>Sign In</Link></li>
+                        )}
                         <li><Link to='/cart'>Cart <span>{totalItems}</span></Link></li>
                     </ul>
                 </div>

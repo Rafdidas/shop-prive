@@ -7,13 +7,19 @@ import { useCategories } from '../../contexts/categories.context';
 import { useCart } from '../../contexts/cart.context';
 import { useUser } from '../../contexts/user.context';
 
+import { RootState, AppDispatch } from '../../store/store';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { clearCurrentUser } from '../../store/user/user.slice';
 
 const Header: FC = () => {
+    const dispatch: AppDispatch = useDispatch();
+    const currentUser = useSelector((state: RootState) => state.user.currentUser);
+    
     const { categories, loading, error } = useCategories();
     const { totalItems } = useCart();
 
-
-    const { currentUser, signOut } = useUser();
+    // const { currentUser, signOut } = useUser();
 
     if (loading) return <p>Loading...</p>
     if (error) return <p>Error: {error}</p>
@@ -39,7 +45,7 @@ const Header: FC = () => {
                         {currentUser ? (
                             <Fragment>
                                 <li>{currentUser.displayName || currentUser.email}</li>
-                                <li><button onClick={signOut}>Sign Out</button></li>
+                                <li><button onClick={() => dispatch(clearCurrentUser())}>Sign Out</button></li>
                             </Fragment>
                         ) : (
                             <li><Link to='/sign-in'>Sign In</Link></li>

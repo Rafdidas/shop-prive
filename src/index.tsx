@@ -9,14 +9,17 @@ import { CategoriesProvider } from './contexts/categories.context';
 import { ProductsProvider } from './contexts/products.context';
 import { DetailProvider } from './contexts/detail.context';
 import { CartProvider } from './contexts/cart.context';
-import { UserProvider } from './contexts/user.context';
+
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <UserProvider>
+    <Provider store={store}>
+      
       <CategoriesProvider>
         <ProductsProvider>
           <DetailProvider>
@@ -28,7 +31,8 @@ root.render(
           </DetailProvider>
         </ProductsProvider>
       </CategoriesProvider>
-    </UserProvider>
+
+    </Provider>
   </React.StrictMode>
 );
 

@@ -1,26 +1,31 @@
 import './shop.styles.scss';
 
-import { useProducts } from '../../contexts/products.context';
-import { useParams } from 'react-router-dom';
 import { FC, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../store/store';
+import { fetchProducts } from '../../store/products/products.action';
 
 import ProductCard from "../../components/product-card/product-card.component";
 
+
 const Shop: FC = () => {
     const { category } = useParams<{ category?: string }>();
-    const { products, loading, fetchProducts, currentPage, hasMore } = useProducts();
+    const dispatch = useDispatch<AppDispatch>();
+
+    const { products, loading, currentPage, hasMore } = useSelector((state: RootState) => state.products);
     
     useEffect(() => {
         if (category) {
-            fetchProducts(1, category);
+            dispatch(fetchProducts({ page: 1, category }));
         } else {
-            fetchProducts(1);
+            dispatch(fetchProducts({ page: 1 }));
         }
-    }, [category]);
+    }, [dispatch, category]);
 
     const loadMore = () => {
         if (hasMore && !loading && !category) {
-            fetchProducts(currentPage + 1);
+            dispatch(fetchProducts({ page: currentPage + 1 }));
         }
     };
 

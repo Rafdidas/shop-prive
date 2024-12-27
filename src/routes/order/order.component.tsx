@@ -2,16 +2,19 @@ import './order.styles.scss';
 
 import { FC } from 'react';
 
-import { useCart, CartItem } from '../../contexts/cart.context';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
+
+import { CartItem } from '../../store/cart/cart.slice';
 
 const Order: FC = () => {
-    const { cartItems } = useCart();
+    const cartItems = useSelector((state: RootState) => state.cart.cartItems);
     const location = useLocation();
     const navigate = useNavigate();
     
     // 특정 상품만 주문하는 경우
-    const customOrder = location.state?.customOrder || [];
+    const customOrder: CartItem[] = location.state?.customOrder || [];
     const orderItems: CartItem[] = customOrder.length > 0 ? customOrder : cartItems;
 
     const totalPrice = orderItems.reduce(

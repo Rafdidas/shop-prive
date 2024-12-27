@@ -17,10 +17,10 @@ const Main = () => {
                         pagination={{
                             type: "progressbar",
                         }}
-                        // autoplay={{
-                        //     delay: 3000,
-                        //     disableOnInteraction: false,
-                        // }}
+                        autoplay={{
+                            delay: 3000,
+                            disableOnInteraction: false,
+                        }}
                         speed={800}
                         loop={true}
                         navigation={false}

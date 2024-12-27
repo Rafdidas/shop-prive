@@ -1,24 +1,28 @@
 import './product-card.styles.scss';
 
-import { Product } from '../../contexts/products.context';
-import { FC, Fragment } from 'react';
+import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-import { useCart } from '../../contexts/cart.context';
+import { Products } from '../../store/products/products.slice';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../store/cart/cart.slice';
+import { AppDispatch } from '../../store/store';
 
 interface ProductCardProps {
-    product: Product;
+    product: Products;
     category?: string;
 }
 
 const ProductCard: FC<ProductCardProps> = ({ product, category }) => {
     const navigate = useNavigate();
+    const dispatch = useDispatch<AppDispatch>();
 
     const handleClick = () => {
         navigate(`/shop/${category}/${product.id}`);
     }
 
-    const { addToCart } = useCart();
+    const handleAddToCart = () => {
+        dispatch(addToCart({ ...product, quantity: 1 }));
+    };
 
     return (
         <div className='product_card_container'>
@@ -29,7 +33,7 @@ const ProductCard: FC<ProductCardProps> = ({ product, category }) => {
                 <p className='prd_desc'>{product.description}</p>
                 <p className='prd_price'>Price: ${product.price}</p>
             </div>
-            <button onClick={() => product && addToCart(product)}>장바구니에 추가</button>
+            <button onClick={handleAddToCart}>장바구니에 추가</button>
         </div>
         
     );

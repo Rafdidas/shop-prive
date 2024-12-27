@@ -5,10 +5,6 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { CategoriesProvider } from './contexts/categories.context';
-import { ProductsProvider } from './contexts/products.context';
-import { DetailProvider } from './contexts/detail.context';
-import { CartProvider } from './contexts/cart.context';
 
 import { Provider } from 'react-redux';
 import { store } from './store/store';
@@ -19,19 +15,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      
-      <CategoriesProvider>
-        <ProductsProvider>
-          <DetailProvider>
-            <CartProvider>
-              <BrowserRouter>
-                <App />
-              </BrowserRouter>
-            </CartProvider>
-          </DetailProvider>
-        </ProductsProvider>
-      </CategoriesProvider>
-
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );

@@ -1,11 +1,15 @@
 import { FC } from 'react';
 import './cart.styles.scss';
-import { useCart } from '../../contexts/cart.context';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
+import { clearCart, removeFromCart } from '../../store/cart/cart.slice';
 
 const Cart: FC = () => {
-    const { cartItems, removeFromCart, clearCart } = useCart();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    
+    const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 
     const handleDetailOrder = () => {
         if (cartItems.length === 0) {
@@ -13,7 +17,15 @@ const Cart: FC = () => {
             return;
         }
         navigate("/order");
+    };
+
+    const handleRemoveItem = (producId: number) => {
+        dispatch(removeFromCart(producId));
     }
+
+    const handleClearCart = () => {
+        dispatch(clearCart());
+    };
 
     return (
         <div id='cart'>
@@ -27,13 +39,13 @@ const Cart: FC = () => {
                             <p>{item.title}</p>
                             <p>수량: {item.quantity}</p>
                             <p>가격: ${item.price * item.quantity}</p>
-                            <button onClick={() => removeFromCart(item.id)}>제거</button>
+                            <button onClick={() => handleRemoveItem(item.id)}>제거</button>
                         </li>
                     )
                 })
             }
             </ul>
-            <button onClick={clearCart}>장바구니 비우기</button>
+            <button onClick={handleClearCart}>장바구니 비우기</button>
             <button onClick={handleDetailOrder}>구매하기</button>
         </div>
     );

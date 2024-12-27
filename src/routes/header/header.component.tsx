@@ -1,25 +1,24 @@
 import './header.styles.scss';
 
-import { FC, Fragment } from 'react';
+import { FC, Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
-import { useCategories } from '../../contexts/categories.context';
-import { useCart } from '../../contexts/cart.context';
-import { useUser } from '../../contexts/user.context';
 
 import { RootState, AppDispatch } from '../../store/store';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { clearCurrentUser } from '../../store/user/user.slice';
+import { fetchCategories } from '../../store/categories/categories.action';
 
 const Header: FC = () => {
     const dispatch: AppDispatch = useDispatch();
-    const currentUser = useSelector((state: RootState) => state.user.currentUser);
     
-    const { categories, loading, error } = useCategories();
-    const { totalItems } = useCart();
+    const currentUser = useSelector((state: RootState) => state.user.currentUser);
+    const { categories, loading, error } = useSelector(( state: RootState ) => state.categories);
+    const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 
-    // const { currentUser, signOut } = useUser();
+    useEffect(() => {
+        dispatch(fetchCategories())
+    }, [dispatch]);
 
     if (loading) return <p>Loading...</p>
     if (error) return <p>Error: {error}</p>
@@ -50,7 +49,7 @@ const Header: FC = () => {
                         ) : (
                             <li><Link to='/sign-in'>Sign In</Link></li>
                         )}
-                        <li><Link to='/cart'>Cart <span>{totalItems}</span></Link></li>
+                        <li><Link to='/cart'>Cart <span>{cartItems.length}</span></Link></li>
                     </ul>
                 </div>
             </div>

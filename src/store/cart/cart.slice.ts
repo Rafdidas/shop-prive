@@ -3,6 +3,7 @@ import { Products } from "../products/products.slice";
 
 export interface CartItem extends Products {
     quantity: number;
+    checked: boolean;
 }
 
 interface CartState {
@@ -21,9 +22,9 @@ const cartSlice = createSlice ({
             const existingItem = state.cartItems.find(item => item.id === action.payload.id);
 
             if (existingItem) {
-                existingItem.quantity += 1;
+                existingItem.quantity += action.payload.quantity;
             } else {
-                state.cartItems.push({ ...action.payload, quantity: 1 });
+                state.cartItems.push({ ...action.payload, checked: true });
             }
         },
         removeFromCart: (state, action: PayloadAction<number>) => {
@@ -38,8 +39,19 @@ const cartSlice = createSlice ({
                 existingItem.quantity = action.payload.quantity
             }
         },
+        toggleItemCheck: (state, action: PayloadAction<number>) => {
+            const item = state.cartItems.find(item => item.id === action.payload);
+            if (item) {
+                item.checked = !item.checked;
+            }
+        },
+        toggleAllCheck: (state, action: PayloadAction<boolean>) => {
+            state.cartItems.forEach(item => {
+                item.checked = action.payload;
+            });
+        },
     },
 });
 
-export const { addToCart, removeFromCart, clearCart, updateQuantity } = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart, updateQuantity, toggleAllCheck, toggleItemCheck } = cartSlice.actions;
 export default cartSlice.reducer;

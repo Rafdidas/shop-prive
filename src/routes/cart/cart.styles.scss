@@ -1,0 +1,145 @@
+#cart {
+  .cart_wrap {
+    display: flex;
+  }
+
+  .area_left {
+    width: 70%;
+    padding-right: 4%;
+  }
+
+  .cart_chk {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+
+    label {
+      font-size: 1.33rem;
+      font-weight: 600;
+    }
+
+    .btn_chk_del {
+      display: inline-block;
+      padding-right: 20px;
+      background: url('https://skinarkakorea2.mywisa.com/_skin/rsp_booster_arkakorea_1.1.2/img/common/btn_del_sml.png') no-repeat right center / 10px;
+      color: #666;
+      font-size: 1.25rem;
+    }
+  }
+
+  .tbl_col.prd {
+    > .tbody {
+      > li.prdimg {
+        .img {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+      > li.prd.tal {
+        text-align: left;
+      }
+      > li.prd {
+        position: relative;
+        padding-right: 28px;
+
+        .name {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            line-clamp: 2;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .btn_del {
+          display: inline-block;
+          position: absolute;
+          top: 18px;
+          right: 0;
+          width: 28px;
+          height: 28px;
+          background: url('https://skinarkakorea2.mywisa.com/_skin/rsp_booster_arkakorea_1.1.2/img/common/btn_del.png') no-repeat center / 28px;
+          color: transparent;
+          font-size: 0;
+        }
+      }
+    }
+  }
+
+  .cart_btn {
+    padding-top: 20px;
+
+    .msg {
+      padding-top: 20px;
+      color: #888;
+      font-size: 1.167rem;
+
+      > p {
+        position: relative;
+        padding-left: 10px;
+
+        &::after {
+          position: absolute;
+          left: 0;
+          top: 0;
+          color: #888;
+          font-size: 1.167rem;
+          content: '-';
+        }
+      }
+    }
+  }
+
+    .area_right {
+        
+        flex-shrink: 0;
+        width: 30%;
+        max-width: 360px;
+        .title {
+            padding-bottom: 20px;
+            font-size: 1.833rem;
+            font-weight: 600;
+        }
+        .inner {
+            position: sticky;
+            top: 101px;
+        }
+
+        .box {
+            padding: 30px 22px 25px;
+            border: 1px solid #efefef;
+            border-radius: 6px 6px 0 0;
+            background-color: #fff;
+        }
+
+        .btn {
+            .box_btn>* {
+                border-radius: 0;
+            }
+        }
+
+        .btn_cpn {
+            margin-top: 20px;
+
+            >* {
+                height: 44px;
+                border: 1px solid #d50c0c;
+                background: #fff;
+                color: #d50c0c;
+                font-size: 1.333rem;
+                letter-spacing: -0.32px;
+            }
+        }
+
+        .btn_order>* {
+            border-radius: 0 0 6px 6px;
+        }
+
+        .pay {
+            margin-top: 20px;
+            text-align: right;
+        }
+    }
+}

@@ -231,3 +231,613 @@ input[type="number"]::-webkit-inner-spin-button {
         padding: 0 5.55%;
     }
 }
+
+.subtitle {
+    padding: 55px 0 40px;
+    text-align: center;
+    font-size: 2.33rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+
+/*-----------------------------------------------------------------*/
+/* 2-1. table
+/*-----------------------------------------------------------------*/
+
+.tbl_row {
+    padding: 10px 15px;
+    border: 1px solid #eaecf0;
+
+    >li {
+        display: flex;
+        align-items: center;
+
+        +li {
+            margin-top: 15px;
+        }
+    }
+}
+
+/* 테이블 스타일 - 세로형 */
+.tbl_col {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-top: 1px solid #000;
+    text-align: center;
+
+    >.thead {
+        display: table-row;
+        border-bottom: 1px solid #efefef;
+
+        >li {
+            display: table-cell;
+            padding: 15px 0;
+            font-size: 1.25rem;
+            vertical-align: middle;
+
+            &.fake {
+                display: none;
+
+                &.on {
+                    display: table-cell;
+                }
+            }
+        }
+    }
+
+    >.tbody {
+        display: table-row;
+        position: relative;
+        border-bottom: 1px solid #efefef;
+
+        >li {
+            display: table-cell;
+            padding: 18px 0;
+            font-size: 1.167rem;
+            vertical-align: middle;
+
+            &.fake {
+                display: none;
+
+                &.on {
+                    display: table-cell;
+                }
+            }
+
+            &.tal {
+                padding-left: 20px;
+            }
+
+            .txt_gray {
+                color: #666;
+                word-break: keep-all;
+            }
+
+            .m_txt {
+                display: none;
+            }
+        }
+    }
+
+    &.sbs {
+        display: block;
+        width: 100%;
+
+        >.thead {
+            display: grid;
+            grid-template-columns: 0 1fr 10% 7% 10% 14% 70px;
+            align-items: center;
+            border-bottom: 1px solid #efefef;
+
+            >li {
+                display: inline-block;
+            }
+        }
+
+        >.tbody {
+            display: grid;
+            grid-template-columns: 125px 1fr 10% 7% 10% 14% 70px;
+            align-items: center;
+            border: none;
+
+            >li {
+                display: inline-block;
+
+                &.prd .btn_del>a {
+                    top: 0 !important;
+                }
+            }
+        }
+
+        .time {
+            padding: 20px 40px;
+            border: 1px solid #efefef;
+            border-width: 1px 0;
+            background: #f5f6f8;
+
+            dl {
+                display: flex;
+                justify-content: space-between;
+                padding: 6px 0;
+
+                * {
+                    line-height: 14px;
+                    font-size: 1.167rem;
+                }
+            }
+        }
+    }
+}
+
+/* 반응형 스타일 */
+@media all and (max-width: 768px) {
+    .tbl_col {
+        display: block;
+        text-align: left;
+
+        >.thead {
+            display: none;
+            padding: 18px 0;
+
+            >li {
+                display: block;
+                padding: 0;
+            }
+        }
+
+        >.tbody {
+            display: block;
+            padding: 18px 0;
+
+            >li {
+                display: block;
+                padding: 0;
+
+                +li {
+                    margin-top: 2px;
+                }
+
+                &.tal {
+                    padding-left: 0;
+                }
+
+                .m_txt {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    .tbl_col.sbs {
+        >.thead {
+            display: none;
+        }
+
+        >.tbody {
+            display: block;
+
+            >li {
+                display: block;
+            }
+        }
+
+        .time {
+            padding: 20px;
+
+            dl * {
+                font-size: 1.083rem;
+            }
+        }
+    }
+}
+
+/* 상품형 주문서 */
+.tbl_col.prd {
+    >.tbody {
+        >li.prdimg {
+            .img {
+                position: relative;
+
+                img {
+                    display: block;
+                    width: 90px;
+                    height: auto;
+                }
+            }
+        }
+
+        >li.prd {
+            .name {
+                font-size: 1.25rem;
+            }
+
+            p {
+                margin-bottom: 2px;
+            }
+
+            .today {
+                display: inline-block;
+                margin: 8px auto 10px;
+                padding-left: 16px;
+                background: url('https://skinarkakorea2.mywisa.com/_skin/rsp_booster_arkakorea_1.1.2/img/shop/icon_today.png') no-repeat left center / 12px;
+                color: #067dfd;
+                font-size: 1rem;
+
+                span {
+                    padding-left: 5px;
+                    color: #666;
+                    font-weight: 500;
+                    font-size: 1rem;
+                }
+            }
+
+            .prc {
+                color: #333;
+            }
+        }
+
+        >li.ord_state {
+            p {
+                strong {
+                    font-size: 1.417rem;
+                    font-weight: 600;
+                }
+
+                +p {
+                    margin-top: 5px;
+                }
+
+                span {
+                    color: #375fff;
+                }
+            }
+        }
+    }
+}
+
+/* 세트상품 */
+.tbl_col.prd>.tbody.set {
+    >li.prdimg {
+        .img {
+            padding-left: 15px;
+            background: url('https://skinarkakorea2.mywisa.com/_skin/rsp_booster_arkakorea_1.1.2/img/shop/icon_set.png') no-repeat left center;
+
+            img {
+                width: 75px;
+            }
+        }
+    }
+}
+
+/* 적립금 & 예치금 */
+.tbl_col.my {
+    >.tbody {
+        >li {
+            vertical-align: top;
+
+            .txt_gray {
+                color: #888;
+            }
+
+            .prc_state {
+                color: #999;
+                font-weight: 600;
+            }
+        }
+    }
+
+    @media all and (max-width: 768px) {
+        >.tbody {
+            position: relative;
+            padding-right: 100px;
+
+            >li {
+                &.info {
+                    margin-top: 14px;
+                }
+
+                &.state {
+                    position: absolute;
+                    top: 18px;
+                    right: 0;
+                }
+
+                &.total {
+                    position: absolute;
+                    top: 50px;
+                    right: 0;
+                    margin-top: 0;
+                    font-size: 1.083rem;
+                }
+
+                p {
+                    margin-bottom: 2px;
+                }
+            }
+        }
+    }
+}
+
+/*-----------------------------------------------------------------*/
+/* 2-2. button
+/*-----------------------------------------------------------------*/
+
+/* 버튼스타일 - 기본 */
+.box_btn {
+    display: inline-block;
+    text-align: center;
+}
+
+.box_btn>* {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
+    height: 44px;
+    margin: 0;
+    padding: 0 10px;
+    border: 1px solid #000;
+    border-radius: 6px;
+    outline: none;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: normal;
+    line-height: 44px;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-appearance: none;
+    transition: all .2s ease;
+}
+
+.box_btn>*:hover,
+.box_btn>*:active,
+.box_btn>*:focus {
+    background: #222;
+}
+
+@media all and (max-width:768px) {
+    .box_btn>* {
+        font-size: 1.167rem;
+    }
+}
+
+/* 버튼스타일 - 라운드 */
+.box_btn.radius>* {
+    min-width: auto;
+    height: 38px;
+    padding: 0 15px;
+    border-radius: 30px;
+    font-size: 1.167rem;
+    line-height: 38px;
+}
+
+.box_btn.radius.mini>* {
+    height: 30px;
+    line-height: 30px;
+}
+
+@media all and (max-width:768px) {
+    .box_btn.radius>* {
+        height: 34px;
+        font-size: 1.083rem;
+        line-height: 34px;
+    }
+}
+
+/* 버튼스타일 - 크기 */
+.box_btn.mini>* {
+    height: 36px;
+    font-size: 1.167rem;
+    line-height: 36px;
+}
+
+.box_btn.small>* {
+    height: 40px;
+    line-height: 40px;
+}
+
+.box_btn.large>* {
+    height: 48px;
+    line-height: 48px;
+}
+
+.box_btn.huge>* {
+    height: 54px;
+    font-size: 1.417rem !important;
+    font-weight: 600;
+    line-height: 54px;
+}
+
+@media all and (max-width:768px) {
+    .box_btn.mini>* {
+        font-size: 1.083rem !important;
+    }
+
+    .box_btn.small>* {
+        font-size: 1.167rem !important;
+    }
+
+    .box_btn.large>* {
+        height: 50px;
+        font-size: 1.167rem !important;
+        line-height: 50px;
+    }
+
+    .box_btn.huge>* {
+        height: 50px;
+        font-size: 1.33rem !important;
+        line-height: 50px;
+    }
+}
+
+/* 버튼스타일 - 가로길이 */
+.box_btn.block {
+    display: block;
+}
+
+.box_btn.block>* {
+    width: 100%;
+}
+
+.box_btn.w50>* {
+    width: 50px;
+    min-width: 50px;
+}
+
+.box_btn.w90>* {
+    width: 90px;
+}
+
+.box_btn.w110>* {
+    width: 110px;
+}
+
+.box_btn.w115>* {
+    width: 115px;
+}
+
+.box_btn.w150>* {
+    width: 150px;
+}
+
+.box_btn.w160>* {
+    width: 160px;
+}
+
+.box_btn.w200>* {
+    width: 200px;
+}
+
+.box_btn.w300>* {
+    width: 300px;
+}
+
+/* 버튼스타일 - 색상 */
+.box_btn.white>* {
+    border-color: #000;
+    background-color: #fff;
+    color: #000;
+}
+
+.box_btn.white:hover>*,
+.box_btn.white:active>*,
+.box_btn.white:focus>* {
+    background-color: #000;
+    color: #fff;
+}
+
+.box_btn.gray>* {
+    border-color: #F5F6F8;
+    background-color: #F5F6F8;
+    color: #333;
+}
+
+.box_btn.gray:hover>*,
+.box_btn.gray:active>*,
+.box_btn.gray:focus>* {
+    border-color: #000;
+    background-color: #fff;
+    color: #000;
+}
+
+.box_btn.grline>* {
+    border-color: #E5E5E5;
+    background-color: #fff;
+    color: #333;
+}
+
+.box_btn.grline:hover>*,
+.box_btn.grline:active>*,
+.box_btn.grline:focus>* {
+    background-color: #f6f6f6;
+}
+
+.box_btn.lightgray>* {
+    border-color: #e4e4e4;
+    background-color: #e4e4e4;
+    color: #fff;
+}
+
+
+/* 결제금액 스타일 - 장바구니, 주문서, 주문상세조회 */
+.prc_order {
+    position: relative;
+    margin-bottom: 6px;
+    padding: 25px 25px 20px;
+    background-color: #f5f6f8;
+
+    &.member_off {
+        margin-bottom: 15px;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        height: 10px;
+        background: url('https://skinarkakorea2.mywisa.com/_skin/rsp_booster_arkakorea_1.1.2/img/common/prc_order_bg.png') top left;
+    }
+
+    dl {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 3px 0;
+        font-size: 1.25rem;
+
+        >* {
+            flex: 1;
+        }
+
+        dd {
+            text-align: right;
+        }
+    }
+
+    .view_info {
+        display: none;
+        padding-bottom: 4px;
+
+        dl {
+            padding: 0;
+            color: #999;
+            font-size: 1.167rem;
+
+            dt,
+            dd {
+                padding: 2px 0;
+            }
+        }
+    }
+
+    .total_prc {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #fff;
+
+        dl {
+            dd {
+                font-size: 1.667rem;
+                font-weight: 700;
+
+                &.sbs_pay {
+                    color: #000 !important;
+                }
+            }
+        }
+
+        .ref {
+            margin-top: -5px;
+            font-size: 1.083rem;
+            font-weight: 400;
+            text-align: right;
+        }
+    }
+}

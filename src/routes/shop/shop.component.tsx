@@ -32,18 +32,18 @@ const Shop: FC = () => {
     return (
         <div className="shop_list_container">
             <div className='wrap_inner'>
-            <h2 className='subtitle'>{category ? `${category.toUpperCase()} 제품 목록` : "모든 제품 목록"}</h2>
-            <div className='shop_list'>
-                {
-                    products.map((product) => {
-                        return (
-                            <ProductCard key={product.id} product={product} category={category} />
-                        )
-                    })
-                }
-            </div>
-            {hasMore && !loading && !category && (
-                <button onClick={loadMore} className='morebtn'>더 보기</button>
+                <h2 className='subtitle'>{category ? `${category.toUpperCase()} 제품 목록` : "모든 제품 목록"}</h2>
+                <div className='shop_list'>
+                    {
+                        products.map((product) => {
+                            return (
+                                <ProductCard key={product.id} product={product} category={category} />
+                            )
+                        })
+                    }
+                </div>
+                {hasMore && !loading && !category && (
+                    <button onClick={loadMore} className='morebtn'>더 보기</button>
                 )}
             </div>
         </div>

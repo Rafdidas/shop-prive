@@ -42,7 +42,7 @@ const Detail: FC = () => {
 
     const handleAddToCart = () => {
         if (productDetail) {
-            dispatch(addToCart({ ...productDetail, quantity}));
+            dispatch(addToCart({ ...productDetail, quantity, checked: true}));
             alert('장바구니에 상품이 담겼습니다.');
         }
         
@@ -54,7 +54,7 @@ const Detail: FC = () => {
         if (cartItems.length > 0) {
             const confirm = window.confirm("장바구니 상품과 함께 구매하시겠습니까?");
             if (confirm) {
-                dispatch(addToCart({ ...productDetail, quantity}));
+                dispatch(addToCart({ ...productDetail, quantity, checked: true}));
                 navigate('/order');
             } else {
                 navigate("/order", { state: { customOrder: [{ ...productDetail, quantity }] } });

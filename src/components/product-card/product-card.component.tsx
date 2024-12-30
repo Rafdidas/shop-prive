@@ -21,7 +21,7 @@ const ProductCard: FC<ProductCardProps> = ({ product, category }) => {
     }
 
     const handleAddToCart = () => {
-        dispatch(addToCart({ ...product, quantity: 1 }));
+        dispatch(addToCart({ ...product, quantity: 1, checked: true }));
         alert('장바구니에 상품이 담겼습니다.');
     };
 

@@ -1,5 +1,5 @@
 # PRIVE
-https://prive-shop.netlify.app/main
+https://prive-shop.netlify.app/
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6bcb29fe-aef3-4262-ac6b-772ec3ffda00/deploy-status)](https://app.netlify.com/sites/prive-shop/deploys)
 
 

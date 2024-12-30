@@ -27,7 +27,7 @@ const Header: FC = () => {
         <header>
             <div className='gnb wrap_inner3'>
                 <div className='hd_left_menu'>
-                    <h1><Link to='/'>PRIVE</Link></h1>
+                    <h1 className='logo'><Link to='/'>PRIVE</Link></h1>
                     <ul className='hd_menu_list'>
                         <li><Link to='/shop'>All</Link></li>
                         {Array.isArray(categories) && categories.map((category) => {

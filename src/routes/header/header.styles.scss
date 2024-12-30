@@ -20,17 +20,22 @@ header {
             align-items: center;
             justify-content: start;
 
-            h1 {
+            h1 > a {
                     margin-right: 30px;
+                    font-size: 30px;
+                    font-weight: 700;
                 }
             
             .hd_menu_list {
                 display: flex;
                 justify-content: start;
                 align-items: center;
-                column-gap: 15px;
-        
-                &>li>* {
+                column-gap: 30px;
+                
+                
+                & > li > * {
+                    font-size: 14px;
+                    font-weight: 400;
                     text-transform: uppercase;
                 }
             }
@@ -42,7 +47,13 @@ header {
                 justify-content: start;
                 align-items: center;
                 column-gap: 15px;
+                & > li > * {
+                    font-size: 14px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
             }
+            
         }
 
         

@@ -9,7 +9,7 @@ export const fetchProducts = createAsyncThunk(
             if (category) {
                 url = `https://fakestoreapi.in/api/products/category?type=${category}`;
             } else {
-                url = `https://fakestoreapi.in/api/products?page=${page}&limit=25`;
+                url = `https://fakestoreapi.in/api/products?page=${page}&limit=24`;
             }
 
             const response = await fetch(url);

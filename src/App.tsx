@@ -8,7 +8,19 @@ import Cart from "./routes/cart/cart.component";
 import AuthPage from "./routes/authenticaion/authenticaion.component";
 import Order from "./routes/order/order.component";
 
-function App() {
+import { FC, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "./store/store";
+import { fetchProducts } from "./store/products/products.action";
+
+const App: FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(fetchProducts({ page: 1 }));
+  }, [dispatch]);
+
+
   return (
     <Routes>
       <Route path="/" element={<Home />}>

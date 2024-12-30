@@ -1,8 +1,32 @@
 .shop_list_container {
     .shop_list {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(4, minmax(calc(25% - 15px), calc(25% - 15px)));
         align-items: start;
+        gap: 30px 20px;
         justify-content: center;
+    }
+    .subtitle {
+        padding: 55px 0 40px;
+        text-align: center;
+        font-size: 2.33rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+    }
+
+    .morebtn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        
+        margin: 50px auto 0;
+        border: 1px solid #333;
+        background-color: #fff;
+        border-radius: 1rem;
+        font-size: 1.333rem;
+        font-weight: 700;
+        line-height: 40px;
+        cursor: pointer;
     }
 }

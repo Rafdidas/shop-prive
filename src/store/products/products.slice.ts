@@ -60,7 +60,7 @@ const productsSlice = createSlice({
                     state.hasMore = false;
                 } else {
                     state.products = page === 1 ? products : [...state.products, ...products];
-                    state.hasMore = products.length === 25;
+                    state.hasMore = products.length === 24;
                 }
 
                 state.currentPage = page;

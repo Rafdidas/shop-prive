@@ -1,4 +1,11 @@
 #main {
+    .main_title > h3 {
+        margin:50px 20px;
+        font-size: 3.333rem;
+        letter-spacing: -0.02em;
+        font-weight: 600;
+        line-height: 58px;
+    }
     .main_visual {
         .swiper-slide img {
             width: 100%;
@@ -18,5 +25,132 @@
         .swiper-pagination-progressbar-fill {
             background: #fff;
         }
+    }
+
+    .best_section {
+        .prd_list {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(calc(20% - 20px), calc(20% - 20px)));
+            align-items: start;
+            gap: 30px 20px;
+            justify-content: center;
+        }
+    }
+
+    .main_text {
+        width: 100%;
+        max-width: 1510px;
+        margin: 100px auto 0;
+
+        .wrap_inner3 {
+            display: flex;
+            justify-content: space-between;
+
+            .title {
+                margin-bottom: 0;
+                width: 52%;
+                max-width: 722px;
+                font-size: 5.416rem;
+                line-height: 1.1714;
+                letter-spacing: -0.02em;
+                font-weight: 600;
+            }
+
+            .cont {
+                width: 38%;
+                margin-top: 30px;
+                max-width: 520px;
+                font-size: 1.333rem;
+                letter-spacing: -0.02em;
+                line-height: 1.625;
+                word-break: keep-all;
+            }
+        }
+    }
+
+    .main_bnr {
+        margin-top: 100px;
+
+        .main_bnr_list {
+            display: flex;
+
+            li {
+                width: 50%;
+                position: relative;
+                overflow: hidden;
+                border-radius: 15px;
+
+                .thum img {
+                    display: block;
+                    width: 100%;
+                }
+
+                .cont {
+                    position: absolute;
+                    top: 100px;
+                    left: 0;
+                    width: 100%;
+                    z-index: 2;
+                    text-align: center;
+
+                    .desc {
+                        margin-bottom: 15px;
+                        font-size: 1.5rem;
+                        font-weight: 500;
+                        line-height: 26px;
+                    }
+
+                    .title {
+                        margin-bottom: 25px;
+                        font-size: 3rem;
+                        font-weight: 700;
+                        line-height: 1.3;
+                    }
+
+                    .link {
+                        color: #999;
+                        font-size: 1.167rem;
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            li+li {
+                margin-left: 20px;
+            }
+        }
+
+        
+    }
+
+    .prom_list {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        column-gap: 3rem;
+        
+        .thum img {
+            display: block;
+            width: 100%;
+        }
+        .cont {
+            margin-top: 20px;
+            .tit {
+                font-size: 1.667rem;
+                letter-spacing: -0.02em;
+                line-height: 1.5;
+                font-weight: 500;
+            }
+        
+            .desc {
+                margin-top: 8px;
+                color: #999;
+                font-size: 1.333rem;
+                letter-spacing: -0.02em;
+                line-height: 1.7692;
+                word-break: break-all;
+            }
+        }
+        
     }
 }

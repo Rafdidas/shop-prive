@@ -1,4 +1,7 @@
 # PRIVE
+https://prive-shop.netlify.app/main
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6bcb29fe-aef3-4262-ac6b-772ec3ffda00/deploy-status)](https://app.netlify.com/sites/prive-shop/deploys)
+
 
 ## 1. 소개 및  참여인원
 - FakeStoreAPI 를 이용한 쇼핑몰 https://fakestoreapi.in/

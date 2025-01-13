@@ -17,11 +17,13 @@ const Header: FC = () => {
     const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 
     useEffect(() => {
-        dispatch(fetchCategories())
+        dispatch(fetchCategories());
     }, [dispatch]);
 
     if (loading) return <p>Loading...</p>
     if (error) return <p>Error: {error}</p>
+    
+    console.log("Current User in Header:", currentUser);
 
     return (
         <header>

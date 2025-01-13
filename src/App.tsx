@@ -12,11 +12,13 @@ import { FC, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "./store/store";
 import { fetchProducts } from "./store/products/products.action";
+import { AuthChanges } from "./store/user/user.actions";
 
 const App: FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
+    // dispatch(AuthChanges());
     dispatch(fetchProducts({ page: 1 }));
   }, [dispatch]);
 

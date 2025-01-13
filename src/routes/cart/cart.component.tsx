@@ -54,7 +54,7 @@ const Cart: FC = () => {
                                     <input type="checkbox" className="partner_check_all_0" checked={allChecked} onChange={handleToggleAll} />
                                     전체선택({selectedItems.length}/{cartItems.length})
                                 </label>
-                                <span className="btn_chk_del">선택삭제</span>
+                                {/* <span className="btn_chk_del">선택삭제</span> */}
                             </div>
                             <div className="tbl_col prd">
                                 
@@ -155,7 +155,7 @@ const Cart: FC = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="btn_order_wrap"><p className="btn_order box_btn huge block"><span>선택상품 주문하기</span></p></div>
+                            <div className="btn_order_wrap"><p className="btn_order box_btn huge block"><span onClick={handleDetailOrder}>선택상품 주문하기</span></p></div>
                         </div>
                     </div>
                 </div>

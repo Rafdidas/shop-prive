@@ -170,6 +170,10 @@ a:focus {
     box-sizing: border-box;
 }
 
+.dn {
+    display: none !important;
+}
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -240,6 +244,72 @@ input[type="number"]::-webkit-inner-spin-button {
     letter-spacing: -0.01em;
 }
 
+
+/* 체크박스, 라디오 */
+input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px 0 0;
+    outline: 0;
+    background: no-repeat left center /20px;
+    background: url('../src/assets/ckbox.png') no-repeat center /20px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    vertical-align: middle;
+    transition: background .2s;
+}
+
+input[type=checkbox]::-ms-check {
+    display: none;
+}
+
+input[type=checkbox]:checked {
+    background-image: url('../src/assets/ckbox_on.png');
+}
+
+input[type=checkbox][disabled] {
+    opacity: .5;
+}
+
+input[type=radio] {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px 0 0;
+    background: url('../src/assets/radio.png') no-repeat left center /20px;
+    border: none;
+    vertical-align: middle;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    transition: background .2s;
+}
+
+input[type=radio]:checked {
+    background-image: url('../src/assets/radio_on.png');
+}
+
+label {
+    display: inline-block;
+    font-size: 1.25rem;
+    line-height: 20px;
+    letter-spacing: -0.01em;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+label:has(input:disabled) {
+    opacity: .5;
+    cursor: default;
+}
+
+@media all and (max-width:768px) {
+    label {
+        font-size: 1.167rem;
+    }
+}
 
 /*-----------------------------------------------------------------*/
 /* 2-1. table
@@ -830,6 +900,10 @@ input[type="number"]::-webkit-inner-spin-button {
                 &.sbs_pay {
                     color: #000 !important;
                 }
+                span {
+                    font-size: 1.667rem;
+                    font-weight: 700;
+                }
             }
         }
 
@@ -839,5 +913,138 @@ input[type="number"]::-webkit-inner-spin-button {
             font-weight: 400;
             text-align: right;
         }
+    }
+}
+
+/* 페이지 내 타이틀 */
+h3.title.first {
+    margin-top: 0 !important;
+}
+
+h3.title {
+    margin-top: 40px;
+    padding-bottom: 20px;
+    font-size: 1.833rem;
+    font-weight: 600;
+}
+
+h3.title.line {
+    border-bottom: 1px solid #000;
+}
+
+@media all and (max-width:1024px) {
+    h3.title {
+        margin-top: 20px;
+        font-size: 1.5rem;
+    }
+
+    h3.title.my {
+        margin-top: 20px !important;
+    }
+}
+
+@media all and (max-width:768px) {
+    h3.title {
+        padding-bottom: 15px;
+        font-size: 1.33rem;
+    }
+}
+
+/* input 기본 스타일 */
+.form_input {
+    display: inline-flex;
+    height: 48px;
+    padding: 0 14px;
+    border: 1px solid #E5E5E5;
+    border-radius: 6px;
+    background: #fff;
+    
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+    transition: all .3s ease;
+}
+
+.form_input:focus {
+    position: relative;
+    z-index: 1;
+    border-color: #000;
+    outline: none !important;
+}
+
+.form_input.block {
+    display: flex;
+    width: 100% !important;
+}
+
+.form_input:-ms-input-placeholder {
+    color: #999;
+    
+}
+
+.form_input::-webkit-input-placeholder {
+    color: #999;
+    
+}
+
+.form_input::-moz-placeholder {
+    color: #999;
+    
+}
+
+.form_input.readonly {
+    background: #e0e0e0 !important;
+}
+
+.form_input.gray {
+    background: #fafafa;
+}
+
+.form_input.gray:focus {
+    background: #fff;
+}
+
+textarea.form_input {
+    height: auto;
+    padding: 14px;
+}
+
+input[type=file].form_input {
+    padding: 10px 14px;
+}
+
+@media all and (max-width:768px) {
+    .form_input {
+        font-size: 1.167rem;
+    }
+}
+
+/* 셀렉트 */
+select {
+    max-width: 100%;
+    height: 48px;
+    padding: 0 30px 0 15px;
+    border: 1px solid #E5E5E5;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1.25rem;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #fff url('../src/assets/icon_select.png') no-repeat right 5px center /30px auto;
+    cursor: pointer;
+}
+
+select.block {
+    width: 100%;
+}
+
+select:focus {
+    outline: none !important;
+}
+
+@media all and (max-width:768px) {
+    select {
+        height: 44px;
+        font-size: 1.167rem;
     }
 }

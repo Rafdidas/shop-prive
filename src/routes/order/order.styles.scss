@@ -1,0 +1,464 @@
+#order {
+    .tal {
+        text-align: left;
+    }
+
+    h3.title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+        margin-top: 55px;
+
+        &.pay_methods {
+            display: none;
+        }
+
+        >span {
+            color: #999;
+
+            &.name {
+                font-size: 1.25rem;
+            }
+        }
+
+        >.btr {
+            position: absolute;
+            top: -5px;
+            right: 40px;
+        }
+
+        >.box_btn {
+            right: 0;
+        }
+    }
+
+    p.msg {
+        color: #999;
+        font-size: 1.083rem;
+    }
+
+    .ord_wrap {
+        display: flex;
+    }
+
+    .area_left {
+        width: 70%;
+        padding-right: 4%;
+    }
+
+    .guest {
+        margin-bottom: 55px;
+
+        .ckbox {
+            color: #666;
+            font-size: 1.167rem;
+        }
+
+        .box {
+            margin-top: 15px;
+            padding-top: 20px;
+            border-top: 1px solid #000;
+
+            dl {
+                font-size: 1.167rem;
+
+                +dl {
+                    padding-top: 10px;
+                }
+
+                dd {
+                    color: #999;
+                }
+            }
+        }
+    }
+
+    .btn_toggle {
+        position: relative;
+        cursor: pointer;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 24px;
+            background: url('../../assets/icon_toggle_up.png') no-repeat right center / 30px auto;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        &.active::after {
+            transform: rotate(180deg);
+        }
+
+        .name {
+            color: #888;
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: -0.3px;
+        }
+    }
+
+    .box_cart {
+        .tbl_col {
+            border-top: none;
+        }
+
+        .cart_btn {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding-top: 10px;
+
+            .btn {
+                margin-left: auto;
+            }
+        }
+
+        .enterprise {
+            &.headY {
+                margin-top: 20px;
+            }
+
+            .tbl_col {
+                border-top: 1px solid #EFEFEF;
+            }
+        }
+    }
+
+    .benefit_wrap {
+        padding: 10px 0;
+        border-bottom: 1px solid #EFEFEF;
+
+        .input_wrap {
+            padding: 10px 0;
+            border-bottom: 0;
+        }
+    }
+
+    .input_wrap {
+        padding: 20px 0;
+        border-bottom: 1px solid #EFEFEF;
+
+        >li {
+            position: relative;
+            padding-left: 140px;
+            font-size: 1.25rem;
+
+            +li {
+                margin-top: 8px;
+            }
+
+            .label {
+                display: flex;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 140px;
+                height: 48px;
+                padding-right: 10px;
+                color: #333;
+                font-size: 1.25rem;
+
+                &.center {
+                    top: 50%;
+                    margin-top: -20px;
+                }
+            }
+
+            .input_box {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 8px 10px;
+                width: 100%;
+                max-width: 420px;
+                min-height: 48px;
+
+                +.input_box {
+                    margin-top: 8px;
+                }
+
+                &.nowrap {
+                    flex-wrap: nowrap;
+                }
+            }
+
+            .msg {
+                padding-top: 10px;
+                color: #999;
+                font-size: 1.083rem;
+            }
+
+            .ckbox {
+                padding: 10px 0;
+            }
+
+            .order_dlv_msg {
+                position: relative;
+
+                .form_input {
+                    position: relative;
+                    padding-right: 45px;
+                    background: url('../../assets/icon_select.png') no-repeat right 5px center / 30px auto;
+                    cursor: pointer;
+                }
+
+                ul {
+                    position: absolute;
+                    left: 0;
+                    top: 100%;
+                    width: 100%;
+                    z-index: 5;
+                    padding: 10px 0;
+                    border: 1px solid #E5E5E5;
+                    border-radius: 6px;
+                    background-color: #fff;
+
+                    li {
+                        font-size: 1.25rem;
+                        padding: 5px 15px;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: #F5F6F8;
+                        }
+                    }
+                }
+            }
+
+            &.country {
+                select {
+                    width: 100%;
+                }
+            }
+
+            &.addfd {
+                .input_box {
+                    input[type="text"] {
+                        height: 46px;
+                        padding: 0 14px;
+                        border: 1px solid #E5E5E5;
+                        border-radius: 6px;
+                        background: #fff;
+                        font-size: 1.25rem;
+                        letter-spacing: -0.01em;
+                        transition: all 0.3s ease;
+
+                        &:focus {
+                            border-color: #000;
+                            outline: none !important;
+                        }
+                    }
+                }
+            }
+
+            .addr_def {
+                p {
+                    margin-bottom: 10px;
+                    line-height: 14px;
+
+                    &#default_addr {
+                        margin-bottom: 30px;
+                    }
+
+                    strong {
+                        font-size: 1.333rem;
+                        font-weight: 600;
+                        letter-spacing: -0.32px;
+                    }
+
+                    .tag {
+                        display: inline-block;
+                        margin-left: 8px;
+                        width: 68px;
+                        height: 28px;
+                        border-radius: 2px;
+                        background-color: #F5F6F8;
+                        color: #000;
+                        font-size: 1.083rem;
+                        font-weight: 400;
+                        line-height: 28px;
+                        text-align: center;
+                    }
+                }
+
+                .addr_msg {
+                    display: inline-block;
+                    margin-top: 7px;
+                    font-size: 1.25rem;
+                }
+            }
+        }
+    }
+
+    .oncpn {
+        .used_cpn_list {
+            li {
+                margin-top: 10px;
+
+                p {
+                    display: inline-block;
+                    padding: 6px 10px 6px 30px;
+                    border-radius: 4px;
+                    background: url('../../assets/icon_red_ck.png') no-repeat left 10px center / 11.5px auto #FDF7F7;
+                    color: #D50C0C;
+                    font-size: 1.083rem;
+
+                    strong {
+                        font: inherit;
+                    }
+                }
+            }
+        }
+    }
+
+    .offcpn {
+
+        #off_cpn_div2,
+        #off_cpn_img2 {
+            display: none;
+        }
+
+        #off_cpn_div2[style*='display: block'] {
+            display: flex !important;
+            gap: 30px;
+        }
+    }
+
+    .method {
+        &.pay_methods {
+            display: none;
+        }
+
+        .pay_type_list {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding: 30px 0;
+            border-bottom: 1px solid #EFEFEF;
+
+            li {
+                width: 190px;
+                padding-top: 0;
+
+                input {
+                    display: none;
+                }
+
+                label {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 5px;
+                    height: 46px;
+                    margin-right: 0;
+                    border: 1px solid #E5E5E5;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+
+                    &:hover {
+                        background: #f6f6f6;
+                    }
+
+                    input:checked+& {
+                        border-color: #000;
+                    }
+
+                    &.simple {
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        color: transparent;
+                        font-size: 0;
+                    }
+
+                    
+
+                    &[for="pay_type2"] {
+                        gap: 10px;
+
+                        &::before {
+                            width: 24px;
+                            height: 24px;
+                            background: url('../../assets/icon_pay_bank.png') no-repeat center/cover;
+                            content: '';
+                        }
+                    }
+
+                    &.mix {
+                        font-size: 0.917rem;
+
+                        img {
+                            width: 60px;
+                        }
+                    }
+                }
+                input:checked+label {
+                    border-color: #000;
+                }
+            }
+
+            
+
+            
+        }
+        p.msg {
+            padding-top: 10px;
+
+            +p.msg {
+                padding-top: 2px;
+            }
+        }
+    }
+    
+    #bank_list_span {
+        display: block;
+        width: 100%;
+
+        select {
+            width: 100%;
+        }
+    }
+    .area_right {
+        width: 30%;
+        max-width: 360px;
+
+        .inner {
+            position: sticky;
+            top: 101px;
+        }
+
+        .box {
+            padding: 30px 22px 0;
+            border: 1px solid #EFEFEF;
+            border-radius: 6px 6px 0 0;
+            background-color: #fff;
+
+            .reconfirm {
+                display: block;
+                padding: 20px 0 40px;
+                letter-spacing: -0.02em;
+            }
+            
+        }
+
+        #order3 {
+            .order_info_sale_prc {
+                padding: 0 5px;
+                color: #fff;
+                font-size: 1.417rem;
+
+            }
+            .btn_pay>* {
+                height: 60px;
+                border-radius: 0 0 6px 6px;
+            }
+        }
+    }
+}

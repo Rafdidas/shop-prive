@@ -25,32 +25,34 @@ const Header: FC = () => {
 
     return (
         <header>
-            <div className='gnb wrap_inner3'>
-                <div className='hd_left_menu'>
-                    <h1 className='logo'><Link to='/'>PRIVE</Link></h1>
-                    <ul className='hd_menu_list'>
-                        <li><Link to='/shop'>All</Link></li>
-                        {Array.isArray(categories) && categories.map((category) => {
-                            return (
-                                <li key={category}>
-                                    <Link to={`/shop/${category}`}>{category}</Link>
-                                </li>
-                            )
-                        })}
-                    </ul>
-                </div>
-                <div className='hd_right_menu'>
-                    <ul className='my_menu'>
-                        {currentUser ? (
-                            <Fragment>
-                                <li>{currentUser.displayName || currentUser.email}</li>
-                                <li><button onClick={() => dispatch(clearCurrentUser())}>Sign Out</button></li>
-                            </Fragment>
-                        ) : (
-                            <li><Link to='/sign-in'>Sign In</Link></li>
-                        )}
-                        <li><Link to='/cart'>Cart <span>{cartItems.length}</span></Link></li>
-                    </ul>
+            <div className='gnb'>
+                <div className='wrap_inner3'>
+                    <div className='hd_left_menu'>
+                        <h1 className='logo'><Link to='/'>PRIVE</Link></h1>
+                        <ul className='hd_menu_list'>
+                            <li><Link to='/shop'>All</Link></li>
+                            {Array.isArray(categories) && categories.map((category) => {
+                                return (
+                                    <li key={category}>
+                                        <Link to={`/shop/${category}`}>{category}</Link>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </div>
+                    <div className='hd_right_menu'>
+                        <ul className='my_menu'>
+                            {currentUser ? (
+                                <Fragment>
+                                    <li>{currentUser.displayName || currentUser.email}</li>
+                                    <li><button onClick={() => dispatch(clearCurrentUser())}>Sign Out</button></li>
+                                </Fragment>
+                            ) : (
+                                <li><Link to='/sign-in'>Sign In</Link></li>
+                            )}
+                            <li><Link to='/cart'>Cart <span>{cartItems.length}</span></Link></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </header>

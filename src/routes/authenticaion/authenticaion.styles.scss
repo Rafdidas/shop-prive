@@ -1,0 +1,39 @@
+#Authenticaion {
+    & > div {
+        display: flex;
+        width: 900px;
+        justify-content: space-between;
+        margin: 50px auto 200px;
+        align-items: start;
+        column-gap: 50px;
+    }
+
+   
+
+    & .sign_box {
+        width: 100%;
+        & input {
+            margin-bottom: 10px;
+        }
+
+        > h2 {
+            margin: 0 0 10px;
+            font-size: 2rem;
+        }
+        > span.sign_subtitle {
+            display: block;
+            margin: 0 0 10px;
+            font-size: 1.25rem;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: space-between;
+            column-gap: 10px;
+
+            .box_btn {
+                width: 100%;
+            }
+        }
+    }
+}

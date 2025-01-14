@@ -3,6 +3,7 @@ import './sign-in-form.styles.scss';
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { AuthError, AuthErrorCodes } from 'firebase/auth';
 import { signWithGooglePopup, createUserDocumentFromAuth, signInAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils';
+import { useNavigate } from 'react-router-dom';
 
 interface FormFields {
     email: string;
@@ -15,6 +16,8 @@ const defaultFormFields: FormFields = {
 };
 
 const SignInForm: FC = () => {
+    const navigate = useNavigate();
+    
     const [formFields, setFormFields] = useState<FormFields>(defaultFormFields);
     const { email, password } = formFields;
 
@@ -26,6 +29,7 @@ const SignInForm: FC = () => {
         try {
             const { user } = await signWithGooglePopup();
             await createUserDocumentFromAuth(user);
+            navigate('/main');
         } catch (error) {
             console.error('Google Sign-In Error:', error);
         }
@@ -41,6 +45,7 @@ const SignInForm: FC = () => {
             );
             console.log('Sign-In Response:', response);
             resetFormFields();
+            navigate('/main');
         } catch (error) {
             if ((error as AuthError).code) {
                 switch ((error as AuthError).code) {
@@ -65,16 +70,38 @@ const SignInForm: FC = () => {
     };
 
     return (
-        <div>
-            <h1>Sign In Page</h1>
+        <div className='sign_box'>
+            <h2>이미 계정이 있으신가요?</h2>
+            <span className='sign_subtitle'>이메일과 비밀번호로 로그인하세요.</span>
             <form onSubmit={handleSubmit}>
-                <input type="email" name="email" id="emailSignIn" value={email} onChange={handleChange} required />
-                <input type="password" name="password" value={password} id="passwordSignIn" required onChange={handleChange} />
-                
-                <button type="submit">Sign In</button>
-                <button onClick={signinWithGoogle}>
-                    Sign In With Google Popup
-                </button>
+                <input 
+                    type="email" 
+                    name="email" 
+                    id="emailSignIn" 
+                    className='form_input block' 
+                    value={email} 
+                    onChange={handleChange} 
+                    placeholder='Email' 
+                    required 
+                />
+                <input 
+                    type="password" 
+                    name="password" 
+                    value={password} 
+                    id="passwordSignIn" 
+                    className='form_input block' 
+                    placeholder='Password' 
+                    required 
+                    onChange={handleChange} 
+                />
+                <div className='btn'>
+                    <span className='box_btn block large'><button type="submit">로그인 하기</button></span>
+                    <span className='box_btn block large blue'>
+                        <button onClick={signinWithGoogle}>
+                            구글 로그인 하기
+                        </button>
+                    </span>
+                </div>
             </form>
         </div>
     )

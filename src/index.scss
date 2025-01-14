@@ -832,6 +832,12 @@ label:has(input:disabled) {
     color: #fff;
 }
 
+.box_btn.blue>* {
+    border-color: #357ae8;
+    background-color: #357ae8;
+    color: #fff;
+}
+
 
 /* 결제금액 스타일 - 장바구니, 주문서, 주문상세조회 */
 .prc_order {

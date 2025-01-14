@@ -45,6 +45,7 @@ const SignUpForm: FC = () => {
 
             await createUserDocumentFromAuth(user, { displayName });
             resetFormFields();
+            alert('가입완료 되었습니다. 로그인해주세요.')
         } catch (error) {
             if ((error as AuthError).code === AuthErrorCodes.EMAIL_EXISTS) {
                 alert('이미 사용 중 인 이메일 입니다.');
@@ -59,13 +60,50 @@ const SignUpForm: FC = () => {
     };
 
     return (
-        <div>
+        <div className='sign_box'>
+            <h2>계정이 없나요?</h2>
+            <span className='sign_subtitle'>이메일과 비밀번호로 가입하세요.</span>
             <form onSubmit={handleSubmit}>
-                <input type="text" name='displayName' value={displayName} onChange={handleChange} required />
-                <input type="email" name="email" id="emailSignUp" value={email} onChange={handleChange} required />
-                <input type="password" name="password" id="passwordSignUp" value={password} onChange={handleChange} required />
-                <input type="password" name="confirmPassword" id="confirmPasswordSignUp" value={confirmPassword} onChange={handleChange} required />
-                <button type="submit">Sign Up</button>
+                <input 
+                    type="text" 
+                    name='displayName' 
+                    className='form_input block' 
+                    value={displayName} 
+                    onChange={handleChange} 
+                    placeholder='이름' 
+                    required 
+                />
+                <input 
+                    type="email" 
+                    name="email" 
+                    className='form_input block' 
+                    id="emailSignUp" 
+                    value={email} 
+                    onChange={handleChange} 
+                    placeholder='Email' 
+                    required 
+                />
+                <input 
+                    type="password" 
+                    name="password" 
+                    id="passwordSignUp" 
+                    className='form_input block' 
+                    value={password} 
+                    onChange={handleChange} 
+                    placeholder='Password' 
+                    required 
+                />
+                <input 
+                    type="password" 
+                    name="confirmPassword" 
+                    id="confirmPasswordSignUp" 
+                    className='form_input block' 
+                    value={confirmPassword} 
+                    onChange={handleChange} 
+                    placeholder='Confirm Password' 
+                    required 
+                />
+                <span className='box_btn block large'><button type="submit">회원가입</button></span>
             </form>
         </div>
     )

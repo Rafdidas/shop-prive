@@ -631,6 +631,76 @@ label:has(input:disabled) {
     }
 }
 
+/* 테이블 스타일(table 구조) - 주문상세조회, 주문완료 */
+.tbl_col_og {
+    table-layout: fixed;
+    clear: both;
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #EFEFEF;
+    text-align: center;
+
+    >thead>tr>th {
+        padding: 14px 0;
+        border-bottom: 1px solid #EFEFEF;
+        font-size: 1.167rem;
+        font-weight: 400;
+        vertical-align: middle;
+    }
+
+    >tbody {
+        >tr {
+
+            >th,
+            >td {
+                padding: 14px 0;
+                border-bottom: 1px solid #EFEFEF;
+                font-size: 1.083rem;
+                font-weight: 400;
+                vertical-align: middle;
+            }
+
+            .tal {
+                padding-left: 14px;
+            }
+        }
+    }
+
+    &.ord {
+        text-align: left;
+
+        >tbody {
+            >tr {
+
+                >th,
+                >td {
+                    padding: 10px 0;
+                    font-size: 1.167rem;
+                    border-bottom: none;
+                    vertical-align: top;
+                }
+
+                &:first-child {
+
+                    >th,
+                    >td {
+                        padding-top: 20px;
+                    }
+                }
+
+                &:last-child {
+
+                    >th,
+                    >td {
+                        padding-bottom: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
 /*-----------------------------------------------------------------*/
 /* 2-2. button
 /*-----------------------------------------------------------------*/
@@ -1052,5 +1122,77 @@ select:focus {
     select {
         height: 44px;
         font-size: 1.167rem;
+    }
+}
+
+/* 마이페이지 공통 박스 */
+.box_mp {
+    margin-bottom: 40px;
+    padding: 55px 20px;
+    border-radius: 6px;
+    background-color: #F5F6F8;
+    text-align: center;
+
+    >h5 {
+        font-size: 1.25rem;
+        font-weight: 400;
+    }
+
+    >span {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .msg {
+        font-size: 1.167rem;
+        word-break: keep-all;
+
+        +.msg {
+            padding-top: 15px;
+        }
+    }
+
+    .mo_br {
+        display: none;
+    }
+
+    .form_input {
+        width: 100%;
+        max-width: 450px;
+        margin: 20px auto 0;
+
+        +.form_input {
+            margin-top: 10px;
+        }
+    }
+
+    &.sml {
+        padding: 30px;
+    }
+
+    @media all and (max-width: 1024px) {
+        margin-bottom: 35px;
+
+        .mo_br {
+            display: block;
+        }
+
+        >h5 {
+            font-size: 1.167rem;
+        }
+
+        >span {
+            font-size: 1.5rem;
+        }
+
+        &.sml {
+            padding: 18px;
+        }
+
+        #edit_pw {
+            .title {
+                display: none;
+            }
+        }
     }
 }

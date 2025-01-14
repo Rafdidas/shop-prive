@@ -45,7 +45,6 @@ header {
                 align-items: center;
                 column-gap: 30px;
                 
-                
                 & > li > * {
                     font-size: 14px;
                     font-weight: 400;
@@ -60,10 +59,14 @@ header {
                 justify-content: start;
                 align-items: center;
                 column-gap: 15px;
+                & > li,
                 & > li > * {
                     font-size: 14px;
                     font-weight: 700;
                     text-transform: uppercase;
+                }
+                & > li.signout {
+                    cursor: pointer;
                 }
             }
             

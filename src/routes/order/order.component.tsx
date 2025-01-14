@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 
 import { CartItem } from '../../store/cart/cart.slice';
+import { v4 as uuidv4 } from 'uuid';
 
 const Order: FC = () => {
     const cartItems = useSelector((state: RootState) => state.cart.cartItems);
@@ -92,8 +93,30 @@ const Order: FC = () => {
     const handlePlaceOrder = () => {
         if (!validateForm()) return;
 
-        alert('주문 완료 !');
-        navigate('/main');
+        const orderId = uuidv4();
+        const dueDate = new Date();
+        dueDate.setDate(dueDate.getDate() + 7); // 현재 날짜에서 7일 뒤
+
+        const formattedDueDate = `${dueDate.getFullYear()}-${(dueDate.getMonth() + 1)
+            .toString()
+            .padStart(2, '0')}-${dueDate.getDate().toString().padStart(2, '0')} 23:59`;
+        const state = {
+            orderId,
+            buyerEmail: buyerInfo.email,
+            orderItems,
+            addressInfo: {
+                ...addressInfo,
+                deliveryMemo,
+            },
+            paymentInfo: {
+                method: payType === '2' ? '무통장입금' : '카드결제',
+                bank,
+                dueDate: formattedDueDate,
+            },
+            totalAmount: totalPrice,
+        };
+
+        navigate('/order-fin', { state });
     };
 
     const handleDeliveryMemoClick = (value: string) => {
@@ -182,11 +205,6 @@ const Order: FC = () => {
                                                     <li className="total"><div><span className="m_txt">총 금액</span> <strong>${item.price * (item.quantity || 1)}</strong></div></li>
                                                 </ul>
                                             ))}
-                                            {/* <div className="order-summary">
-                                                <p>총 주문 개수: {totalQuantity}개</p>
-                                                <p>총 주문 금액: ${totalPrice}</p>
-                                                <button onClick={handlePlaceOrder}>구매하기</button>
-                                            </div> */}
                                         </>
                                     ) : (
                                         <p>주문할 상품이 없습니다.</p>
@@ -362,7 +380,7 @@ const Order: FC = () => {
                                                         onChange={(e) => setBank(e.target.value)}
                                                     >
                                                         <option value="">:: 입금은행 선택::</option>
-                                                        <option value="1">국민은행 123456789 홍길동</option>
+                                                        <option value="국민은행 123456789 홍길동">국민은행 123456789 홍길동</option>
                                                     </select>
                                                 </span>
                                             </div>
@@ -439,7 +457,6 @@ const Order: FC = () => {
                             <div id="order3">
                                 <label className="btn_pay box_btn huge block">
                                     <span onClick={handlePlaceOrder}>
-                                        {/* <input type="submit" value="" className="dn" /> */}
                                         $ <span className="order_info_sale_prc">{totalPrice}</span> 결제하기
                                     </span>
                                 </label>

@@ -51,7 +51,7 @@ const Header: FC = () => {
                             {currentUser ? (
                                 <Fragment>
                                     <li>{currentUser.displayName || currentUser.email}</li>
-                                    <li><button onClick={handleLogout}>Sign Out</button></li>
+                                    <li onClick={handleLogout} className='signout'>Sign Out</li>
                                 </Fragment>
                             ) : (
                                 <li><Link to='/sign-in'>Sign In</Link></li>

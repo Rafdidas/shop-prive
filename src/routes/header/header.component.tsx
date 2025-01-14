@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 import { RootState, AppDispatch } from '../../store/store';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { clearCurrentUser } from '../../store/user/user.slice';
 import { fetchCategories } from '../../store/categories/categories.action';
+import { logoutUser } from '../../store/user/user.slice';
 
 const Header: FC = () => {
     const dispatch: AppDispatch = useDispatch();
@@ -24,6 +24,10 @@ const Header: FC = () => {
     if (error) return <p>Error: {error}</p>
     
     console.log("Current User in Header:", currentUser);
+
+    const handleLogout = () => {
+        dispatch(logoutUser());
+    };
 
     return (
         <header>
@@ -47,12 +51,12 @@ const Header: FC = () => {
                             {currentUser ? (
                                 <Fragment>
                                     <li>{currentUser.displayName || currentUser.email}</li>
-                                    <li><button onClick={() => dispatch(clearCurrentUser())}>Sign Out</button></li>
+                                    <li><button onClick={handleLogout}>Sign Out</button></li>
                                 </Fragment>
                             ) : (
                                 <li><Link to='/sign-in'>Sign In</Link></li>
                             )}
-                            <li><Link to='/cart'>Cart <span>{cartItems.length}</span></Link></li>
+                            <li><Link to='/cart'>Cart <span>{Array.isArray(cartItems) ? cartItems.length : 0}</span></Link></li>
                         </ul>
                     </div>
                 </div>

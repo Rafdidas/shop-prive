@@ -12,16 +12,29 @@ import { FC, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "./store/store";
 import { fetchProducts } from "./store/products/products.action";
-import { AuthChanges } from "./store/user/user.actions";
+import { onAuthStateChangedListener } from "./utils/firebase/firebase.utils";
+import { fetchCurrentUser } from "./store/user/user.slice";
 
 const App: FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    // dispatch(AuthChanges());
+    //dispatch(AuthChanges());
     dispatch(fetchProducts({ page: 1 }));
   }, [dispatch]);
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangedListener((user) => {
+      if (user) {
+        console.log('User signed in:', user);
+        dispatch(fetchCurrentUser()); // 유저 정보 갱신
+      } else {
+        console.log('User signed out');
+      }
+    });
+
+    return unsubscribe;
+  }, [dispatch]);
 
   return (
     <Routes>

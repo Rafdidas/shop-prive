@@ -18,6 +18,8 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "6",
     "react-scripts": "5.0.1",
+    "redux": "^5.0.1",
+    "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "sass": "^1.83.0",
     "swiper": "^11.1.15",
@@ -47,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/redux-logger": "^3.0.13"
   }
 }

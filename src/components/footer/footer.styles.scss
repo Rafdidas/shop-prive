@@ -156,3 +156,140 @@ footer {
         }
     }
 }
+
+@media all and (max-width: 1816px) {
+    footer {
+        .ft_btm {
+            .share {
+                right: 2.8645%;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 1024px) {
+    footer {
+        margin-top: 50px;
+        padding-bottom: 50px;
+
+        .ft_top {
+            margin-bottom: 25px;
+        }
+
+        .ft_btm {
+            >.wrap_inner3 {
+                display: block;
+                padding-top: 0;
+            }
+
+            .box_wrap {
+                display: block;
+                margin-left: 0;
+                margin-bottom: 30px;
+
+                >li {
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+                    +li {
+                        margin-left: 0;
+                    }
+
+                    >h3 {
+                        margin-bottom: 0;
+                        height: 73px;
+
+                        
+                    }
+
+                    >.cont {
+                        padding: 20px 0;
+                        border-top: 1px solid rgba(255, 255, 255, 0.1);
+                    }
+                }
+            }
+
+            .share {
+                position: static;
+                margin-top: 40px;
+
+                >li {
+                    display: block;
+                    height: auto;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 768px) {
+    footer {
+        padding-bottom: 40px;
+
+        .ft_top {
+            margin-bottom: 20px;
+
+            .menu {
+                justify-content: space-between;
+
+                >li+li {
+                    margin-left: 0;
+                }
+
+                >li>a {
+                    line-height: 50px;
+                }
+            }
+        }
+
+        .ft_btm {
+            .box_wrap {
+                >li {
+                    >h3 {
+                        height: 50px;
+                        font-size: 1.667rem;
+                    }
+
+                    >.cont {
+                        padding: 15px 0;
+
+                        * {
+                            font-size: 1.083rem;
+                        }
+
+                        strong {
+                            margin-bottom: 5px;
+                            font-size: 1.5rem;
+
+                            >a {
+                                font-size: 1.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .info {
+                .ta_br {
+                    display: none;
+                }
+
+                .mo_br {
+                    display: block;
+                }
+
+                * {
+                    font-size: 1rem;
+                }
+            }
+
+            .copyright,
+            .copyright * {
+                font-size: 1rem;
+            }
+
+            .share {
+                margin-top: 20px;
+            }
+        }
+    }
+}

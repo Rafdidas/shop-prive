@@ -462,3 +462,294 @@
         }
     }
 }
+
+@media all and (max-width: 1024px) {
+    #order {
+        h3.title {
+            >.box_btn.btr * {
+                width: 91px;
+                height: 34px;
+            }
+
+            >span.name {
+                font-size: 1.167rem;
+            }
+
+            >.btr {
+                top: -9px;
+            }
+        }
+
+        .ord_wrap {
+            display: block;
+        }
+
+        .area_left {
+            width: 100%;
+            padding-right: 0;
+        }
+
+        .input_wrap {
+            >li {
+                .input_box {
+                    min-height: 46px;
+
+                    .form_input,
+                    select {
+                        height: 46px;
+                    }
+
+                    .box_btn.gray>* {
+                        height: 46px;
+                    }
+                }
+
+                .label {
+                    height: 46px;
+                }
+            }
+
+            &.benefit {
+                >li {
+                    .input_box {
+                        .form_input {
+                            width: 206px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .benefit_wrap {
+            padding: 14px 0;
+
+            .input_wrap {
+                padding: 6px 0;
+            }
+        }
+
+        .input_wrap {
+            >li {
+                .addr_def {
+                    p {
+                        font-size: 1.167rem;
+
+                        strong {
+                            font-size: 1.25rem;
+                        }
+                    }
+
+                    p#default_addr {
+                        margin-bottom: 18px;
+                    }
+                }
+            }
+        }
+
+        .method {
+            .pay_type_list {
+                li {
+                    width: 130px;
+
+                    label {
+                        &[for="pay_type1"] {
+                            gap: 8px;
+                        }
+
+                        &[for="pay_type2"] {
+                            gap: 8px;
+                        }
+
+                        &[for="pay_type4"] {
+                            gap: 5px;
+                        }
+
+                        &[for="pay_type5"] {
+                            gap: 6px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .area_right {
+            width: 100%;
+            max-width: 100%;
+            margin-top: 50px;
+
+            .inner {
+                position: static;
+            }
+
+            #order3 {
+                .btn_pay.fixed {
+                    position: fixed;
+                    left: 0;
+                    bottom: 0;
+                    z-index: 50;
+                    width: 100%;
+
+                    >* {
+                        height: 60px;
+                        border-radius: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 768px) {
+    #order {
+        h3.title {
+            margin-top: 40px;
+
+            >span.name {
+                font-size: 1.083rem;
+            }
+
+            >.btr {
+                top: -12px;
+            }
+        }
+
+        p.msg {
+            font-size: 1rem;
+        }
+
+        .guest {
+            .ckbox {
+                font-size: 1.083rem;
+            }
+
+            .box {
+                dl {
+                    font-size: 1.083rem;
+                }
+            }
+        }
+
+        .input_wrap {
+            >li {
+                padding-left: 80px;
+
+                .label {
+                    width: 80px;
+                    height: 40px;
+                    font-size: 1.083rem;
+                }
+
+                .input_box {
+                    min-height: 40px;
+
+                    .form_input,
+                    select {
+                        height: 40px;
+                        font-size: 1.083rem;
+                    }
+
+                    .box_btn.gray>* {
+                        height: 40px;
+                    }
+
+                    &.cash {
+                        flex-wrap: wrap;
+
+                        select {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            &.benefit {
+                >li {
+                    .input_box {
+                        .form_input {
+                            width: calc(100% - 74px);
+                        }
+
+                        .has {
+                            font-size: 1.083rem;
+                        }
+                    }
+
+                    .box_btn.gray>* {
+                        width: 64px;
+                        min-width: 64px;
+                    }
+                }
+            }
+        }
+
+        .benefit_wrap {
+            padding: 9px 0;
+
+            .input_wrap {
+                padding: 11px 0;
+            }
+        }
+
+        .input_wrap {
+            >li {
+                .addr_def {
+                    p {
+                        font-size: 1.083rem;
+
+                        strong {
+                            font-size: 1.167rem;
+                        }
+                    }
+
+                    p#default_addr {
+                        margin-bottom: 22px;
+                    }
+
+                    .addr_msg {
+                        margin-top: 0;
+                        font-size: 1.167rem;
+                    }
+                }
+
+                .order_dlv_msg {
+                    ul {
+                        li {
+                            font-size: 1.083rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .method {
+            .pay_type_list {
+                padding: 20px 0;
+
+                li {
+                    width: 100%;
+
+                    label {
+                        height: 42px;
+
+                        &[for="pay_type4"] {
+                            gap: 6px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .area_right {
+            h3.title {
+                font-size: 1.5rem;
+            }
+
+            .box {
+                .reconfirm {
+                    padding: 25px 0 35px;
+                    font-size: 1.083rem;
+                }
+            }
+        }
+    }
+}

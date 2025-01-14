@@ -101,9 +101,11 @@
 
     @media all and (max-width: 1024px) {
         .box_mp {
-            .num {
+            .num,
+            .num>strong{
                 font-size: 1.667rem;
             }
+            
         }
     }
 

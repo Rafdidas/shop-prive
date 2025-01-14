@@ -11,6 +11,9 @@
             width: 100%;
             height: 100%;
         }
+        .swiper-slide img.mo_visual {
+            display: none;
+        }
         .swiper-pagination-progressbar {
             position: absolute;
             left: 50%;
@@ -28,12 +31,24 @@
     }
 
     .best_section {
-        .prd_list {
-            display: grid;
-            grid-template-columns: repeat(5, minmax(calc(20% - 20px), calc(20% - 20px)));
-            align-items: start;
-            gap: 30px 20px;
-            justify-content: center;
+        // .prd_list {
+        //     display: grid;
+        //     grid-template-columns: repeat(5, minmax(calc(20% - 20px), calc(20% - 20px)));
+        //     align-items: start;
+        //     gap: 30px 20px;
+        //     justify-content: center;
+        // }
+        .swiper-pagination-progressbar {
+            position: static;
+            width: 100%;
+            height: 2px;
+            z-index: 2;
+            margin-top: 20px;
+            background: E0E0E0;
+        }
+
+        .swiper-pagination-progressbar-fill {
+            background: #000;
         }
     }
 
@@ -119,7 +134,7 @@
                 margin-left: 20px;
             }
         }
-
+       
         
     }
 
@@ -151,6 +166,153 @@
                 word-break: break-all;
             }
         }
+        .swiper-pagination-progressbar {
+            position: static;
+            width: 100%;
+            height: 2px;
+            z-index: 2;
+            margin-top: 20px;
+            background: E0E0E0;
+        }
+
+        .swiper-pagination-progressbar-fill {
+            background: #000;
+        }
         
     }
+}
+
+
+@media all and (max-width:1024px) {
+    #main {
+        
+        .main_visual {
+        
+            .swiper-slide img.mo_visual {
+                display: block;
+            }
+    
+            .swiper-slide img.pc_visual {
+                display: none;
+            }
+            
+    
+        }
+        .main_title>h3 {
+            margin: 30px 10px;
+            font-size: 2rem;
+        }
+
+        .best_section {
+            // .prd_list {
+            //     grid-template-columns: repeat(2, minmax(calc(50% - 10px), calc(50% - 10px)));
+            //     gap: 30px 20px;
+            // }
+            
+        }
+
+        .main_text {
+            width: auto;
+            max-width: 1510px;
+            margin: 50px 0 0;
+
+            .wrap_inner3 {
+                display: block;
+                justify-content: space-between;
+
+                .title {
+                    margin-bottom: 15px;
+                    font-size: 2.5rem;
+                    font-weight: 700;
+                    line-height: 1.3333;
+                }
+
+                .cont {
+                    width: 100%;
+                    font-size: 1.083rem;
+                    line-height: 1.7692;
+                }
+            }
+        }
+
+        .main_bnr {
+            margin-top: 50px;
+
+            .main_bnr_list {
+                display: block;
+
+                li {
+                    width: 100%;
+
+                    .thum img {
+                        display: block;
+                        width: 100%;
+                    }
+
+                    .cont {
+                        top: 20px;
+
+                        .desc {
+                            margin-bottom: 7px;
+                            font-size: 1.083rem;
+                            line-height: 19px;
+                        }
+
+                        .title {
+                            margin-bottom: 10px;
+                            font-size: 1.5rem;
+                        }
+
+                        .link {
+                            font-size: 1rem;
+                        }
+                    }
+                }
+
+                li+li {
+                    margin-top: 20px;
+                    margin-left: 0;
+                }
+            }
+
+
+        }
+
+        .prom_list {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            column-gap: 3rem;
+
+            .thum img {
+                display: block;
+                width: 100%;
+            }
+
+            .cont {
+                margin-top: 20px;
+
+                .tit {
+                    font-size: 1.667rem;
+                    letter-spacing: -0.02em;
+                    line-height: 1.5;
+                    font-weight: 500;
+                }
+
+                .desc {
+                    margin-top: 8px;
+                    color: #999;
+                    font-size: 1.333rem;
+                    letter-spacing: -0.02em;
+                    line-height: 1.7692;
+                    word-break: break-all;
+                }
+            }
+
+        }
+    }
+}
+
+@media all and (max-width:768px) {
+    
 }

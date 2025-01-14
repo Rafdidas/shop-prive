@@ -5,7 +5,7 @@ import SignUpForm from '../../components/sign-up-form/sign-up-form.component';
 
 const AuthPage: FC = () => {
     return (
-        <div id='Authenticaion'>
+        <div id='Authenticaion' className='wrap_inner'>
             <h2 className="subtitle">로그인</h2>
             <div className='log_inner'>
                 <SignInForm />

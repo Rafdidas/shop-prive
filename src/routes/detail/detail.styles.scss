@@ -148,3 +148,113 @@
         }
     }
 }
+
+@media all and (max-width:1024px) {
+    #detail {
+        .wrap_prd {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 30px;
+            margin-top: 0;
+
+            .prd_img img {
+                display: block;
+                max-width: none;
+                width: 100%;
+                height: auto;
+            }
+
+            .info {
+                .brand {
+                    margin-bottom: 10px;
+                    font-size: 1.25rem;
+                }
+
+                .name {
+                    padding-right: 0px;
+                    font-size: 1.333rem;
+                }
+
+                .summary {
+                    padding-top: 10px;
+                    color: #888;
+                    font-size: 1.083rem;
+                    letter-spacing: -0.28px;
+                }
+
+                .price {
+                    padding: 10px 0 5px;
+                    font-size: 1.66rem;
+                }
+
+                .qty_total {
+                    padding: 10px 0;
+
+                    .qty_section {
+                        column-gap: 10px;
+                        grid-template-columns: 80px 1fr;
+
+                        >p {
+                            color: #888;
+                            font-size: 1.167rem;
+                            word-break: keep-all;
+                        }
+
+                        .box_qty {
+                            position: relative;
+                            max-width: 100px;
+                        }
+                    }
+
+                    .opt_total {
+                        grid-template-columns: 80px 1fr;
+                        column-gap: 10px;
+                        margin-top: 10px;
+
+                        .sell_prc_str_total,
+                        .title {
+                            font-size: 1.167rem;
+                            font-weight: 700;
+                        }
+
+                        .sell_prc_str_total {
+                            color: #333;
+                            font-size: 1.333rem;
+                            font-weight: 700;
+                        }
+                    }
+
+
+                }
+
+                .btn {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    column-gap: 10px;
+                    margin-top: 30px;
+
+                    button {
+                        display: block;
+                        width: 100%;
+                        height: 56px;
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                        border-radius: 6px;
+                        cursor: pointer;
+                    }
+
+                    .cart_btn {
+                        border: 1px solid #e5e5e5;
+                        background-color: #fff;
+                    }
+
+                    .buy_btn {
+                        border: 1px solid #000;
+                        background-color: #000;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }    
+}

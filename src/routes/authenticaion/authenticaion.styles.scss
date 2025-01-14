@@ -37,3 +37,32 @@
         }
     }
 }
+
+@media all and (max-width:1024px) {
+    #Authenticaion {
+        & > div {
+            width: 100%;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: 20px auto 100px;
+            align-items: start;
+            column-gap: 0;
+            row-gap: 50px;
+        }
+
+        & .sign_box {
+            
+            >h2 {
+                margin: 0 0 5px;
+                font-size: 1.333rem;
+            }
+
+            >span.sign_subtitle {
+                font-size: 1.083rem;
+            }
+        }
+    }
+}
+@media all and (max-width:768px) {
+    
+}

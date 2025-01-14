@@ -6,6 +6,18 @@
         gap: 30px 20px;
         justify-content: center;
     }
+    @media all and (max-width:1024px) {
+        .shop_list {
+            grid-template-columns: repeat(2, minmax(calc(50% - 10px), calc(50% - 10px)));
+        }
+    }
+
+    @media all and (max-width:768px) {
+        .shop_list {
+            gap: 50px;
+            grid-template-columns: repeat(1, minmax(100%, 100%));
+        }
+    }
     
 
     .morebtn {
@@ -24,3 +36,5 @@
         cursor: pointer;
     }
 }
+
+

@@ -4,6 +4,7 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 
 import MainVisual0 from '../../assets/main_visual.png'; 
+import MainVisual1 from '../../assets/main_visual_m.png'; 
 import MidBnr0 from '../../assets/mid_bnr0.png';
 import MidBnr1 from '../../assets/mid_bnr1.png';
 import PromBnr0 from '../../assets/prom_bnr0.png';
@@ -43,13 +44,19 @@ const Main: FC = () => {
                         modules={[Pagination, Autoplay]}
                     >
                         <SwiperSlide>
-                            <img src={MainVisual0} alt="Main Visual" />
+                            <img className="pc_visual" src={MainVisual0} alt="Main Visual" />
+                            <img className="mo_visual" src={MainVisual1} alt="Main Visual" />
+
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={MainVisual0} alt="Main Visual" />
+                            <img className="pc_visual" src={MainVisual0} alt="Main Visual" />
+                            <img className="mo_visual" src={MainVisual1} alt="Main Visual" />
+
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={MainVisual0} alt="Main Visual" />
+                            <img className="pc_visual" src={MainVisual0} alt="Main Visual" />
+                            <img className="mo_visual" src={MainVisual1} alt="Main Visual" />
+
                         </SwiperSlide>
                     </Swiper>
                 </div>
@@ -61,13 +68,28 @@ const Main: FC = () => {
                 </div>
                 <div className="best_section">
                     <div className="prd_list">
-                    {
-                        bestProducts.map((product) => {
-                            return (
-                                <ProductCard key={product.id} product={product}/>
-                            )
-                        })
-                    }
+                        <Swiper
+                            pagination={{
+                                type: "progressbar",
+                            }}
+                            spaceBetween={30} // 슬라이드 간격
+                            slidesPerView={1} // 보여질 슬라이드 개수
+                            breakpoints={{
+                                768: {
+                                    slidesPerView: 3, 
+                                },
+                                1024: {
+                                    slidesPerView: 5, 
+                                },
+                            }}
+                            modules={[Pagination]}
+                        >
+                            {bestProducts.map((product) => (
+                                <SwiperSlide key={product.id}>
+                                    <ProductCard product={product} />
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
                     </div>
                 </div>
                 {/* main text */}
@@ -108,52 +130,94 @@ const Main: FC = () => {
                 </div>
                 <div className="best_section">
                     <div className="prd_list">
-                    {
-                        newProducts.map((product) => {
-                            return (
-                                <ProductCard key={product.id} product={product}/>
-                            )
-                        })
-                    }
+                        <Swiper
+                            pagination={{
+                                type: "progressbar",
+                            }}
+                            spaceBetween={30} // 슬라이드 간격
+                            slidesPerView={1} // 보여질 슬라이드 개수
+                            breakpoints={{
+                                768: {
+                                    slidesPerView: 3, 
+                                },
+                                1024: {
+                                    slidesPerView: 5, 
+                                },
+                            }}
+                            modules={[Pagination]}
+                        >
+                            {newProducts.map((product) => (
+                                <SwiperSlide key={product.id}>
+                                    <ProductCard product={product} />
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
                     </div>
                 </div>
                 <div className="main_title">
                     <h3>TODAY PROMOTION</h3>
                 </div>
                 <div className="prom_list">
-                    <div className="prom_box">
-                        <div className="thum">
-                            <img src={PromBnr0} alt="promotion banner" />
-                        </div>
-                        <div className="cont">
-                            <div className="tit">
-                                아무 걱정 없이, 더 작고 더 가볍게. 스피커 모음전 ~50%
+                    <Swiper
+                        pagination={{
+                            type: "progressbar",
+                        }}
+                        autoplay={{
+                            delay: 3000,
+                            disableOnInteraction: false,
+                        }}
+                        speed={800}
+                        loop={true}
+                        navigation={false}
+                        spaceBetween={36} // 슬라이드 간격
+                        slidesPerView={1} // 보여질 슬라이드 개수
+                        breakpoints={{
+                            768: {
+                                slidesPerView: 3, // 768px 이상에서는 4개의 슬라이드 표시
+                            },
+                        }}
+                        modules={[Pagination, Autoplay]}
+                    >
+                        <SwiperSlide>
+                        <div className="prom_box">
+                            <div className="thum">
+                                <img src={PromBnr0} alt="promotion banner" />
                             </div>
-                            <div className="desc">혁신적인 크기와 무게를 위해 새로운 렌즈를 제시합니다. 일상의 모든 순간이 작품이 됩니다.</div>
-                        </div>
-                    </div>
-                    <div className="prom_box">
-                        <div className="thum">
-                            <img src={PromBnr1} alt="promotion banner" />
-                        </div>
-                        <div className="cont">
-                            <div className="tit">
-                                편안하게 몰입하는 매혹적인 경험, 블루투스 스피커
+                            <div className="cont">
+                                <div className="tit">
+                                    아무 걱정 없이, 더 작고 더 가볍게. 스피커 모음전 ~50%
+                                </div>
+                                <div className="desc">혁신적인 크기와 무게를 위해 새로운 렌즈를 제시합니다. 일상의 모든 순간이 작품이 됩니다.</div>
                             </div>
-                            <div className="desc">혁신적인 크기와 무게의 이어폰은 편안하게 착용할 수 있으며, 한번의 탭으로 빠르게 연결됩니다.</div>
                         </div>
-                    </div>
-                    <div className="prom_box">
-                        <div className="thum">
-                            <img src={PromBnr2} alt="promotion banner" />
-                        </div>
-                        <div className="cont">
-                            <div className="tit">
-                                아무 걱정 없이, 더 작고 더 가볍게. 헤드폰 2세대 출시
+                        </SwiperSlide>
+                        <SwiperSlide>
+                        <div className="prom_box">
+                            <div className="thum">
+                                <img src={PromBnr1} alt="promotion banner" />
                             </div>
-                            <div className="desc">특수 설계된 유닛으로 업계 최고의 노이즈 캔슬링을 제공합니다. 사운드 하나하나의 디테일에 몰입할 수 있습니다.</div>
+                            <div className="cont">
+                                <div className="tit">
+                                    편안하게 몰입하는 매혹적인 경험, 블루투스 스피커
+                                </div>
+                                <div className="desc">혁신적인 크기와 무게의 이어폰은 편안하게 착용할 수 있으며, 한번의 탭으로 빠르게 연결됩니다.</div>
+                            </div>
                         </div>
-                    </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                        <div className="prom_box">
+                            <div className="thum">
+                                <img src={PromBnr2} alt="promotion banner" />
+                            </div>
+                            <div className="cont">
+                                <div className="tit">
+                                    아무 걱정 없이, 더 작고 더 가볍게. 헤드폰 2세대 출시
+                                </div>
+                                <div className="desc">특수 설계된 유닛으로 업계 최고의 노이즈 캔슬링을 제공합니다. 사운드 하나하나의 디테일에 몰입할 수 있습니다.</div>
+                            </div>
+                        </div>
+                        </SwiperSlide>
+                    </Swiper>
                 </div>
             </div>
         </div>

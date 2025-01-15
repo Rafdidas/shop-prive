@@ -19,19 +19,25 @@ https://prive-shop.netlify.app/
 ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
 ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
+
 - context branch
 ![Context-API](https://img.shields.io/badge/Context--Api-000000?style=for-the-badge&logo=react)
 
 ## 3. 핵심 기능
 - 메인페이지에 대표 상품들을 진열
-- 헤더 카테고리에서 전체상품과 각각의 카테고리 이동가
+- 헤더 카테고리에서 전체상품과 각각의 카테고리 이동
 - 리스트에서 퀵카트로 담기 
+- 상세페이지 바로구매, 장바구니 담기기
 - 장바구니 페이지에서 담긴 상품 확인
 - 주문 페이지에서 구매할 상품 확인 가능
+- 주문 완료 후 주문 완료페이지에서 구매 정보 확인인
 - 이메일 로그인, 가입, 구글 로그인 가능
 
+- 반응형 작업업
+
 ## 3-1. Redux 도입
-- Context-API 구성 후 Redux 도입 시도 중
+- Context-API 구성 후 
+- Redux 도입
 
 ### Ex) product Redux
 - 상태 관리 중앙화
@@ -142,18 +148,28 @@ export default productsSlice.reducer;
 
 ## 4. 사이트 구성
    ### 메인 페이지
-   - 
+   - Swiper 를 이용하여 비주얼 슬라이드 및 상품슬라이드 구현
+   - 상품 슬라이드는 반응형 작업을 통해 반응
    ### 리스트 페이지
-   - 
+   - ALL 페이지 에서만 페이지네이션을 지원하는 Api 특성상 all 페이지만 더보기 구현
+   - 상품 카드 클릭 시 상세이동
+   - 상품 카드에서 장바구니 담기 바로 가능
    ### 로그인 페이지
-   - 
+   - 이메일, 구글 로그인 파이어베이스로 구현
+   - 이메일 가입 가능
    ### 상세 페이지
-   - 
+   - 상품의 간단한 정보 표시
+   - 상품의 수량 조절 후 장바구니 담기, 구매가능
+   - 이미 장바구니에 담긴 상품과 같이 구매, 단독으로 구매 선택
    ### 장바구니 페이지
-   - 
+   - 장바구니에 담긴 상품 확인 가능
+   - 선택한 상품만 구매하여 주문서로 이동 가능
    ### 주문서 페이지
-   -
+   - 비 로그인 시 비회원 동의 노출
+   - 주문상품 확인 후 
+   - 주문자 정보, 배송지 정보, 결제 수단 선택 시 구매 가능능
    ### 검색 페이지
    - 예정
 
 ## 5. 핵심 트러블 슈팅
+- user redux 연동에서 문제 지속적 발생 Timestamp 문제 해결 중
